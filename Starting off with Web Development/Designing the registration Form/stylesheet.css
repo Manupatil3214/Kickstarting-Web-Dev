@@ -1,0 +1,33 @@
+body {
+    background: rgb(239, 201, 201);
+    /* font-size: 100%; */
+
+  }
+  input{
+    
+    font-style: 100px;
+    color: coral;
+    font-size:2vw;
+  }
+  .content {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 10px;
+  }
+  h2 {
+    align-items: center;
+    font-weight: bold;
+    color: #fff;
+    font-size: 59px;
+  }
+  label {
+    color: rgb(228, 23, 115);
+    padding: 8px;
+    width: 88px;
+
+  }
+  element.style {
+    width: 45px;
+    padding: 45px;
+}
