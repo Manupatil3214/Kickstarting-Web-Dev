@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="title">object in local storage in javascript</h2>
+
+
+
+</body>
+<script type="text/javascript">
+    let myObj = {
+        name: 'Domenico',
+        age: 34
+    };
+    localStorage.setItem('myObj', myObj);
+    console.log(localStorage);
+
+
+    // OUTPUT:
+    // Storage {myObj: '[object Object]', length: 1}
+    // myObj: "[object Object]"
+    // length: 1
+    // [[Prototype]]: Storage
+
+
+    let myobj_serializable = JSON.stringify(myObj);
+    console.log(myObj);
+    // OUTPUT:
+    // Storage {myObj: '[object Object]', length: 1}myObj: "[object Object]"length: 1[[Prototype]]: Storage
+    // local_storage.html:32 
+
+    localStorage.setItem('myObj', myobj_serializable);
+    console.log(localStorage);
+
+ // OUTPUT:   
+// Storage { myObj: '{"name":"Domenico","age":34}', length: 1 }
+//     myObj:"{\"name\":\"Domenico\",\"age\":34}"
+//     length:1
+//     [[Prototype]]:Storage
+
+
+let myObj_deserialize =JSON.parse(localStorage.getItem('myObj')) ;
+console.log(myObj_deserialize) ;
+
+//OUTPUT;
+// {name: 'Domenico', age: 34}
+// age: 34
+// name: "Domenico"
+// [[Prototype]]: Object
+
+
+
+</script>
+
+</html>
