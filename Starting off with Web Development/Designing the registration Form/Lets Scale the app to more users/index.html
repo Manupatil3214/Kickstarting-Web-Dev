@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="id1"> Appointment Booking App</h2>
+    <input type="text" id="name" placeholder="Enter Name">
+    <input type="text" id="Email" placeholder="Enter Email">
+    <input type="submit" id=" save" value="Submit" onclick="saveData()">
+
+    <ul id="listOfPeople">
+        <li>rtkhuy jgyt <input id="yash" type="button" value="Edit" class="delete" style="border: 2px solid green;">
+            <input type="button" value="delete" class="delete" style="border: 2px solid red;"></li>
+    </ul>
+   
+</body>
+<script type="text/javascript">
+
+
+    //stores items in the localStorage
+
+    function saveData() {
+        const name = document.getElementById("name").value;
+        const Email = document.getElementById("Email").value;
+
+        //create a new array 
+        let user_records = new Array();
+
+        //read the data from
+
+        user_records = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : []
+
+        if (user_records.some((v) => {
+            return v.Surname == Surname
+        })) {
+            alert("Please Remover Dupicated Data!")
+        }
+        else {
+            user_records.push({
+                "name": name,
+                "Email": Email
+
+
+
+            })
+
+            localStorage.setItem("users", JSON.stringify(user_records));
+
+
+        }
+
+
+user_records.textContent=localStorage.getItem("users");
+
+  }
+
+
+</script>
+
+</html>
