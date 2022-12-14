@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Appointment Booking App</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+
+
+
+
+</head>
+
+
+
+<body>
+
+    <fieldset>
+
+        <legend>Appointment Booking App</legend>
+
+        <form action="#" method="post" id="MyForm">
+
+
+
+            <input type="text" class="name" id="name" placeholder="Enter Your Name" required />
+
+            <input type="text" class="email" id="email" placeholder="Enter Your Email" required />
+
+            <input type="submit" value="submit" id="sub" onclick="submitName()" />
+
+
+
+        </form>
+
+
+
+    </fieldset>
+
+
+
+    <table id="customers">
+
+        <thead>
+
+
+
+            <th>Name</th>
+
+            <th>Email</th>
+
+            <th>Action</th>
+
+
+
+            <thead>
+
+            <tbody id="output">
+
+
+
+            </tbody>
+
+    </table>
+
+
+
+</body>
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+  a1.value = "Edit";
+
+  a1.addEventListener("click", () => {
+
+    console.log(object);
+
+    document.getElementById("name").value = object.name;
+
+    document.getElementById("email").value = object.emailId;
+
+    li.remove();
+
+  });
+
+  a1.className = "delete";
+
+  a1.style.border = "2px solid green";
+
+  console.log(a1);
+
+  li.appendChild(a1);
+
+
+
+
+
+  const a = document.createElement("input");
+
+  a.type = "button";
+
+  a.value = "delete";
+
+  a.addEventListener("click", () => {
+
+    localStorage.removeItem("userDetails" + object.emailId);
+
+    // axios.delete(`${apiendpoint}/registeruser/${object._id}`);
+
+    li.remove();
+
+  });
+
+  a.className = "delete";
+
+  a.style.border = "2px solid red";
+
+  console.log(a);
+
+  li.appendChild(a);
+
+  console.log(li);
+
+
+
+
+
+  ul.appendChild(li);
+
+}
+
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
