@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCAL_STORAGE</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
+    <style>
+        table {
+            width: 60%;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #8ebf42;
+            color: #fff;
+        }
+
+        tbody {
+            background-color: #f3ebeb;
+        }
+
+        tfoot {
+            background-color: #ccc7c7;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #666666;
+        }
+
+        button {
+            margin: 2px 4px;
+            padding: 3px 5px;
+            border: 1px solid red;
+            /* background-color: crimson; */
+            font-style: italic;
+            height: 43px;
+            width: 96px;
+            background-color: #0a0a23;
+            color: #fff;
+            /* border:none;  */
+            border-radius: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"
+    integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Appointment Booking App</legend>
+        <form role="form" id="Myform">
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="ENTER NAME">ENTER YOUR NAME</label>
+                    <input type="name" class="form-control" id="name" placeholder="ENTER YOUR NAME">
+                </div>
+                <br>
+                <div>
+                    <label for="exampleInputEmail1">ENTER YOUR EMAIL</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="ENTER EMAIL ID">
+
+                </div>
+
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-primary" onclick="Submit(event)">Submit</button>
+        </form>
+    </fieldset>
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+
+        </tbody>
+    </table>
+</body>
+<script type="text/javascript">
+
+
+    // crud crud link store in varible
+    const url = `https://crudcrud.com/api/436c02494a794a3ea14c1fb7d842469c/MANISHA_info`;
+
+    document.getElementById("Myform").addEventListener("submit", Submit);
+    let myObj;
+
+
+    //Create
+    //retrieve Data from form
+
+    function retrieveData() {
+        var amount = document.getElementById("name").value;
+
+        var description = document.getElementById("email").value;
+
+
+
+
+        myObj = {
+            amount,
+            description,
+
+        };
+
+    }
+    // submit button  click 
+    function Submit(e) {
+        //Clicking on a submit button, prevent it from submitting a from
+        e.preventDefault();
+
+        let value = retrieveData();
+        if (value != 0) {
+
+            // create data use Axios.post
+            axios
+                .post(url, myObj).then((res) => {
+                    console.log(res.data);
+                });
+        }
+
+        document.getElementById("Myform").reset();
+        DisplayData();
+    }
+    DisplayData = () => {
+        //table id store in MyTable
+
+        let MyTable;
+        MyTable = document.getElementById("output");
+
+        // MyTable call for display Data In Html page table
+
+        MyTable.innerHTML = " ";
+
+        axios.get(`${url}`).then((response) => {
+            for (let i = 0; i < response.data.length; i++) {
+                MyTable.innerHTML += `
+<tr> <td>${response.data[i].amount}</td>
+<td>${response.data[i].description}</td>
+<td><button class="btn btn-info" onclick="editExpense('${response.data[i]._id}','${response.data[i].amount}','${response.data[i].description}')">Edit</button><button class="btn btn-danger" onclick="deleteExpense('${response.data[i]._id}')">Delete</button></td>
+
+</tr>`;
+            }
+        });
+    };
+
+// click button to  editing data
+const editExpense = (_id, amount, description) => {
+
+// using edit button help of Axios.put
+axios
+.put(
+  `${url}/${_id}`,
+  (document.getElementById("amount").value = amount),
+  (document.getElementById("description").value = description)
+  
+)
+.then((res) => {
+  console.log(res.data);
+});
+};
+
+
+
+// click button to  Deleting 
+const deleteExpense = (_id) => {
+// using delete button help of Axios.put
+axios.delete(`${url}/${_id}`).then((res) => {
+console.log(res.data);
+});
+DisplayData();
+};
+DisplayData();
+
+
+</script>
+
+
+</html>
