@@ -1,0 +1,91 @@
+body {
+    background-color: #FA8072;
+    font-size: large;
+    font-style: inherit;
+width: 679px;
+}
+
+legend {
+    background-color: coral;
+    margin: 1px 12px;
+    padding: 1px 30px;
+    border: 1px solid pink;
+    height: 53px;
+    width: 217px;
+}
+#legend1{
+    background-color: rgb(121 233 114);
+    margin: 1px 12px;
+    padding: 1px 30px;
+    border: 1px solid pink;
+    height: 73px;
+    width: 217px; 
+}
+
+button {
+    margin: 2px 4px;
+    padding: 3px 5px;
+    border: 1px solid red;
+    /* background-color: crimson; */
+    font-style: italic;
+    height: 43px;
+    width: 96px;
+    background-color:#0a0a23;
+    color: #fff;
+    /* border:none;  */
+    border-radius:10px; 
+}
+
+input[type=text] {
+    margin: 2px 4px;
+    padding: 3px 5px;
+
+}
+
+fieldset {
+    background-color: #E9967A;
+}
+
+table {
+    background-color: #008080;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 33px 4px auto;
+    padding: 3px 23px;
+
+    min-width: 23em;
+    width: 679px;
+    max-width: 56em;
+
+    box-shadow: 0 0 .5em #000;
+}
+
+
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
