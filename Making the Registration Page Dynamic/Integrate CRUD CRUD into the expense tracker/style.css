@@ -1,0 +1,94 @@
+body {
+    /* background-color: #FA8072; */
+    font-size: large;
+    font-style: inherit;
+     width: 879px;
+     background-image: url("termina-back.JPG");
+     background-repeat: no-repeat;
+     background-size: cover;
+}
+
+   
+
+
+legend {
+    background-color: coral;
+    margin: 1px 12px;
+    padding: 1px 30px;
+    border: 1px solid pink;
+    height: 53px;
+    width: 217px;
+}
+#legend1{
+    background-color: rgb(121 233 114);
+    margin: 1px 12px;
+    padding: 1px 30px;
+    border: 1px solid pink;
+    height: 73px;
+    width: 217px; 
+}
+
+button {
+    margin: 2px 4px;
+    padding: 3px 5px;
+    border: 1px solid red;
+    /* background-color: crimson; */
+    font-style: italic;
+    height: 43px;
+    width: 96px;
+    background-color:#0a0a23;
+    color: #fff;
+    /* border:none;  */
+    border-radius:10px; 
+}
+
+input[type=text] {
+    margin: 2px 4px;
+    padding: 3px 5px;
+
+}
+
+fieldset {
+    background-color: #E9967A;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+/* body {
+	margin: 0;
+	background: linear-gradient(45deg, #49a09d, #5f2c82);
+	font-family: sans-serif;
+	font-weight: 100;
+} */
+
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+
+
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #666;
+  }
